@@ -1,19 +1,21 @@
-import { Title } from "solid-start";
-import Counter from "~/components/Counter";
+import { Title, useRouteData } from 'solid-start'
+import { createServerData$ } from 'solid-start/server'
+import { testDb } from '~/server'
+
+export function routeData() {
+  return createServerData$(async (_, { request }) => {
+    return await testDb()
+  })
+}
 
 export default function Home() {
+  const data = useRouteData<typeof routeData>()
+
   return (
     <main>
-      <Title>Hello World</Title>
+      <Title>Hello Kysely</Title>
       <h1>Hello world!</h1>
-      <Counter />
-      <p>
-        Visit{" "}
-        <a href="https://start.solidjs.com" target="_blank">
-          start.solidjs.com
-        </a>{" "}
-        to learn how to build SolidStart apps.
-      </p>
+      {JSON.stringify(data)}
     </main>
-  );
+  )
 }
