@@ -3,9 +3,7 @@
   "scripts": {
     "dev": "solid-start dev",
     "build": "solid-start build",
-    "start": "solid-start start",
-    "migrate-01": "ts-node ./src/server/db/migrate.ts",
-    "migrate-02": "node --experimental-specifier-resolution=node --loader ts-node/esm ./src/server/db/migrate.ts"
+    "start": "solid-start start"
   },
   "type": "module",
   "devDependencies": {
@@ -21,6 +19,7 @@
     "pg": "^8.8.0",
     "solid-js": "^1.6.0",
     "solid-start": "^0.2.0",
+    "ts-node": "^10.9.1",
     "undici": "^5.11.0"
   },
   "engines": {
