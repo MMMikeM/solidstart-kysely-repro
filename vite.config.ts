@@ -7,7 +7,7 @@ const pkgJSON = JSON.parse(readFileSync('package.json', 'utf-8'))
 export default defineConfig({
   plugins: [solid()],
   optimizeDeps: {
-    exclude: Object.keys(pkgJSON.dependencies ?? []),
+    esbuildOptions: { target: 'es2020' },
   },
   build: {
     target: 'es2020',
