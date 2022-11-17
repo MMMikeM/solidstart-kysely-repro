@@ -3,7 +3,7 @@ import { promises as fs } from 'fs'
 import { Migrator, FileMigrationProvider } from 'kysely'
 import { db } from '.'
 
-export async function migrateToLatest(db: any) {
+export async function migrateToLatest(db) {
   const migrator = new Migrator({
     db,
     provider: new FileMigrationProvider({
@@ -31,3 +31,5 @@ export async function migrateToLatest(db: any) {
 
   await db.destroy()
 }
+
+migrateToLatest(db)
